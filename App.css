@@ -1,0 +1,227 @@
+:root {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --success: #10b981;
+  --danger: #ef4444;
+  --border: #e2e8f0;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Header y Búsqueda Global */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 30px;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Autocompletado Inteligente */
+.autocomplete-dropdown {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  list-style: none;
+  overflow: hidden;
+}
+
+.autocomplete-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.autocomplete-item:hover {
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+/* Píldoras de Filtros */
+.filters-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pill.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Visualización de Tarjetas (Grid) */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.book-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-cover {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.meta-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.format-tag {
+  background: var(--bg);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Semáforo Visual */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.dot.green { background-color: var(--success); }
+.dot.red { background-color: var(--danger); }
+
+/* Botones y UI */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) { background-color: var(--primary-hover); }
+.btn-primary:disabled { background-color: var(--text-muted); cursor: not-allowed; opacity: 0.6; }
+
+/* Pantalla de Éxito */
+.success-screen {
+  text-align: center;
+  padding: 50px 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.check-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.code-box {
+  background: var(--bg);
+  border: 2px dashed var(--success);
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--success);
+  border-radius: 12px;
+  margin: 25px 0;
+  letter-spacing: 4px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header h1 { font-size: 2rem; }
+  .search-input { padding: 1rem 1.2rem; }
+}
